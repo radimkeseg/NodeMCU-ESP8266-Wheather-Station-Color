@@ -21,3 +21,6 @@ NodeMCU ESP8266 Weather Station with Color Dicole Display
 ## Known issues
 * Date is not properly reflected for non GMT zones (within the offset only)
 * Occasionally the update freeze (suspect - in case of the network issue)
+
+## Inspiration
+* https://learn.adafruit.com/wifi-weather-station-with-tft-display/

@@ -17,6 +17,11 @@ NodeMCU ESP8266 Weather Station with Color Dicole Display
  * Enter your Wifi credentials
  * Adjust the location according to Wunderground API, e.g. Zurich, CH
  * Adjust UTC offset
+ 
+## Components
+* universal PCB http://www.ebay.com/itm/400985368376?_trksid=p2060353.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT
+* NodeMCU ESP8266 http://www.ebay.com/itm/401009563436?_trksid=p2060353.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT
+* Dicole Display http://www.ebay.com/itm/371295963140?_trksid=p2060353.m2749.l2649&ssPageName=STRK%3AMEBIDX%3AIT
 
 ## Known issues
 * Date is not properly reflected for non GMT zones (within the offset only)

@@ -211,6 +211,7 @@ void setup() {
   Serial.begin(9600);
   
   tft.begin();
+  delay(100);
   digitalWrite(TFT_POWER_PIN, HIGH);
 
   tft.setMode('C');
@@ -219,6 +220,7 @@ void setup() {
   tft.setBgColor(BLACK);
   tft.cleanDrawWindow(); //clear draw window use the new back ground color
   tft.backLightOn();
+//  tft.backLightBrightness(50);
 
   tft.setFont(10);
   tft.setColor(WHITE);
@@ -262,6 +264,11 @@ void setup() {
   //downloadResources();
 
   // load the weather information
+
+//  digitalWrite(TFT_POWER_PIN, LOW);
+//  delay(100);
+//  digitalWrite(TFT_POWER_PIN, HIGH);
+
   updateData();
 }
 

@@ -29,3 +29,7 @@ NodeMCU ESP8266 Weather Station with Color Dicole Display
 
 ## Inspiration
 * https://learn.adafruit.com/wifi-weather-station-with-tft-display/
+
+## Libraries
+* Libraries folder
+* http://www.digole.com/images/file/Tech_Data/DigoleSerial.zip

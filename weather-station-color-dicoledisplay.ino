@@ -164,6 +164,7 @@ void handle_store_settings(){
     //updateData(false);
     forceUpdateData = true;
   }
+  timeClient.setTimeOffset(UTC_OFFSET);
   server.send(200, "text/html", "OK");
 }
 
@@ -200,6 +201,8 @@ void read_custom_settings(){
     }
     f.close();
     Serial.println("reading custom setting end");
+
+    timeClient.setTimeOffset(UTC_OFFSET);
 }
 /**/
   
@@ -273,6 +276,7 @@ void setup() {
 }
 
 long lastDrew = 0;
+long stamp = 0;
 void loop() {
   // "standard setup"
   {
@@ -285,13 +289,13 @@ void loop() {
 
 
     // Check if we should update the clock
-    if (millis() - lastDrew > 30000 && wunderground.getSeconds() == "00" || forceUpdateData ) {
+    if (stamp - lastDrew > 30000 && wunderground.getSeconds() == "00" || stamp <= lastDrew || forceUpdateData ) {
       drawTime(false);
-      lastDrew = millis();
+      stamp = millis();
     }
 
     // Check if we should update weather information
-    if (millis() - lastDownloadUpdate > 1000 * UPDATE_INTERVAL_SECS || forceUpdateData) {
+    if (stamp - lastDownloadUpdate > 1000 * UPDATE_INTERVAL_SECS || stamp <= lastDownloadUpdate || forceUpdateData) {
       updateData(false);
       lastDownloadUpdate = millis();
     }

@@ -287,11 +287,11 @@ void loop() {
     // Handle OTA update requests
     ArduinoOTA.handle();
 
-
+    stamp = millis();
     // Check if we should update the clock
     if (stamp - lastDrew > 30000 && wunderground.getSeconds() == "00" || stamp <= lastDrew || forceUpdateData ) {
       drawTime(false);
-      stamp = millis();
+      lastDrew = millis();
     }
 
     // Check if we should update weather information

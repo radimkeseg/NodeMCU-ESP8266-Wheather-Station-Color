@@ -289,13 +289,13 @@ void loop() {
 
     stamp = millis();
     // Check if we should update the clock
-    if (stamp - lastDrew > 30000 && wunderground.getSeconds() == "00" || stamp <= lastDrew || forceUpdateData ) {
+    if (stamp - lastDrew > 30000 && wunderground.getSeconds() == "00" || stamp < lastDrew  && wunderground.getSeconds() == "00"|| forceUpdateData ) {
       drawTime(false);
       lastDrew = millis();
     }
 
     // Check if we should update weather information
-    if (stamp - lastDownloadUpdate > 1000 * UPDATE_INTERVAL_SECS || stamp <= lastDownloadUpdate || forceUpdateData) {
+    if (stamp - lastDownloadUpdate > 1000 * UPDATE_INTERVAL_SECS || stamp < lastDownloadUpdate || forceUpdateData) {
       updateData(false);
       lastDownloadUpdate = millis();
     }

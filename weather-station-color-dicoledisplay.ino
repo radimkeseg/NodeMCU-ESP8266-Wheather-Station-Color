@@ -289,7 +289,7 @@ void loop() {
 
     stamp = millis();
     // Check if we should update the clock
-    if (stamp - lastDrew > 30000 && wunderground.getSeconds() == "00" || stamp < lastDrew  && wunderground.getSeconds() == "00"|| forceUpdateData ) {
+    if (stamp - lastDrew > 30000 || stamp < lastDrew || forceUpdateData ) {
       drawTime(false);
       lastDrew = millis();
     }
@@ -298,6 +298,10 @@ void loop() {
     if (stamp - lastDownloadUpdate > 1000 * UPDATE_INTERVAL_SECS || stamp < lastDownloadUpdate || forceUpdateData) {
       updateData(false);
       lastDownloadUpdate = millis();
+    }
+
+    if(timeClient.getHoursInt() == 0 && timeClient.getMinutesInt() && timeClient.getSecondsInt() < 10){
+      ESP.restart();
     }
 
     if(forceUpdateData) forceUpdateData = false;

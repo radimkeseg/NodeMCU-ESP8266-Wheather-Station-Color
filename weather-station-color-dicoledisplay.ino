@@ -299,11 +299,11 @@ void loop() {
       updateData(false);
       lastDownloadUpdate = millis();
     }
-
+/*
     if(timeClient.getHoursInt() == 0 && timeClient.getMinutesInt() && timeClient.getSecondsInt() < 10){
       ESP.restart();
     }
-
+*/
     if(forceUpdateData) forceUpdateData = false;
   }
 }

@@ -19,7 +19,7 @@ See more at http://blog.squix.ch
 */
 
 // Setup
-const int UPDATE_INTERVAL_SECS = 10 * 60;  // Update every 10 minutes
+const int UPDATE_INTERVAL_SECS = 30 * 60;  // Update every 30 minutes
 boolean USE_TOUCHSCREEN_WAKE = false;       // use the touchscreen to wake up, ~90mA current draw
 boolean DEEP_SLEEP = false;                 // use the touchscreen for deep sleep, ~10mA current draw but doesnt work
 int     AWAKE_TIME = 5;                   // how many seconds to stay 'awake' before going back to zzz

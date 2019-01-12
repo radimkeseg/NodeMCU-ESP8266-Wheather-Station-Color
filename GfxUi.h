@@ -43,6 +43,8 @@ class GfxUi {
     void setTextColor(uint8_t c, uint8_t bg);
     void drawBmp(String filename, uint8_t x, uint16_t y);
     void drawBmp(String filename, uint8_t x, uint16_t y, uint8_t factor);
+    void drawGif(String filename, uint8_t x, uint16_t y);
+    void drawGif(String filename, uint8_t x, uint16_t y, uint8_t factor);
     void drawProgressBar(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t percentage, uint16_t frameColor, uint16_t barColor);
 
   private:

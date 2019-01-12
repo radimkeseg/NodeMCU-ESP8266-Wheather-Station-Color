@@ -1,5 +1,5 @@
 /**The MIT License (MIT)
-Copyright (c) 2017 by Radim Keseg
+Copyright (c) 2015 by Daniel Eichhorn
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -61,6 +61,12 @@ void GfxUi::drawProgressBar(uint16_t x0, uint16_t y0, uint16_t w, uint16_t h, ui
   _tft->drawFrame(x0, y0, w, h);
   _tft->setColor(barColor);
   _tft->drawBox(x0 + margin, y0 + margin, barWidth * percentage / 100.0, barHeight);
+}
+
+
+void GfxUi::drawGif(String filename, uint8_t x, uint16_t y){ drawGif(filename, x, y, 1); }
+void GfxUi::drawGif(String filename, uint8_t x, uint16_t y, uint8_t factor){
+ return;
 }
 
 
@@ -154,7 +160,10 @@ void GfxUi::drawBmp(String filename, uint8_t x, uint16_t y, uint8_t factor) {
             bmpFile.seek(pos, SeekSet);
             buffidx = sizeof(sdbuffer); // Force buffer reload
           }
-
+if(row+factor<h){
+  _tft->setColor(0x97);
+  _tft->drawLine(x, y+row/factor+1, x+(w-1)/factor, y+row/factor+1);
+}
           for (col=0; col<w; col+=factor) { // For each pixel...
             // Time to read more pixel data?
             if (buffidx >= sizeof(sdbuffer)) { // Indeed
